@@ -1,0 +1,267 @@
+/* CSS Document */
+
+*{
+	margin:0;
+	padding:0;}
+body,p,h1,ul,li{
+	margin:0;
+	padding:0;}
+body{
+	color:#FFF;
+	font-size:14px;
+	font-family:宋体;}
+img{
+	border:none;}
+a{
+	color:#FFF;
+	text-decoration:none;}
+a:hover{
+	color:#F00;}
+/*div{
+	height:300px;}测试*/
+#header{
+	width:100%;
+	height:54px;
+	background-color:#000;
+	position:fixed;
+	top:0;
+	left:0;}
+#logo{
+	width:149px;/*this a test*/
+	height:54px;/*this a test*/
+	/*background-color:red;*/
+	float:left;
+	margin-left:0;
+	margin-top:0;}/*this a test*/
+#menu{
+	height:54px;/*测试内部li到时再指定*/
+	width:330px;/*测试内505-175*/
+	/*background-color:#999;*/
+	float:left;
+	margin-top:0;
+	margin-left:25px;
+	text-align:center;
+	vertical-align:bottom;}
+#fenlei{
+	font-size:20px;
+	font-family:黑体;
+	margin-top:14px;
+	}
+#search{
+	width:370px;/*测试1230-1190*/
+	height:54px;
+	float:right;
+	margin-top:0;
+	margin-right:40px;
+	/*background-color:#F00;*/
+	text-align:center;
+	/*background-image:url(../image/search.png);
+	background-repeat:no-repeat;*/
+	position:relative;}/*测试1230-1190*/
+/*#searchimg{
+	top:5px;
+	position:absolute;
+    }*/
+#searchframe{
+	width:280px;
+	height:30px;
+	margin-top:10px;
+	background-image:url(../image/icon3.png);
+	background-repeat:no-repeat;
+	}
+	
+
+#find{
+	width:110px;/*测试1190-820*/
+	height:54px;
+	float:right;
+	margin-top:0;
+	margin-right:5px;
+	/*background-color:#0F0;*/
+	
+	
+	}
+#mendian{
+	margin-top:8px;
+	margin-left:8px;
+	font-size:16px;
+	color:#ccc;
+	margin:0 auto;
+		}
+#mendianimg{
+	margin-top:10px;
+	margin-left:10px;}
+#ad{
+	width:100%;
+	height:471px;/*测试*/
+	text-align:center;
+	}
+#adimg{
+	width:1345px;/*与图片尺寸一致*/
+	height:471px;/*与图片尺寸一致*/
+	background-color:#fff;
+	margin:0 auto;
+	/*position:relative;
+	top:54px;
+	left:0;声明是父亲*/
+	background-image:url(../image/ad.png);
+	background-repeat:no-repeat;
+	}
+#page{
+	height:15px;
+	width:110px;/*15*4+3*6*/
+	/*background-color:#fff;*/
+	position:relative;/*参考的是要是父亲*/
+	top:450px;
+	left:633.5px;}
+.circle{
+	width:12px;
+	height:12px;
+	border-radius:6px;
+	border:1px solid #fff;
+	float:left;
+	margin-top:0;
+	margin-left:4px;}
+#contactus{
+	width:1340;
+	height:48px;
+	margin:0 auto;
+	color:#000;
+	background-color:#fff;
+	text-align:center;
+	font-size:20px;
+	margin-top:12px;	
+	}
+#sinaimg{
+	vertical-align:middle;
+	margin-top:10px;
+	}
+#main{
+	width:100%;
+	height:1500px;/*做测试假的高度*/
+	background-color:#CCC;}
+#center{
+	width:1110px;/*测试 并结果有用*/
+	height:1500px;/*测试 并结果无用*/
+	background-color:rgb(203,204,204);
+	margin:0 auto;}
+.product{
+	width:520px;
+	height:280px;
+	float:left;
+	margin-left:25px;
+	margin-bottom:25px;
+	background-color:#fff;}/*背景颜色*/
+.bigproduct{
+	width:1030px;
+	height:455px;
+	background-color:#fff;
+	clear:both;/*要清除浮动*/
+	margin-left:25px;
+	}
+#footer{
+	width:100%;
+	height:270px;
+	margin-bottom:0;
+	background-color:#fff;}/*背景颜色*/
+#help{
+	width:100%;
+	height:216px;
+	margin-top:63px;
+	background-color:#fff;/*背景颜色*/
+	margin:0 auto;
+}
+#helpframe{
+	background-color:#fff;/*背景颜色*/
+    width:1280px;
+	height:100px;
+	margin:0 auto;
+	}
+.h{
+	
+	width:250px;
+	height:100px;
+	float:left;
+	color:#000;
+	background-color:#fff;
+	margin-bottom:80px;
+	margin-left:70px;
+	}
+.wenzi{
+	color:#000;
+	font-size:28px;}
+/*#h1{
+	width:130px;
+	height:65px;
+	background-color:#0CC;
+	margin-left:1284px;
+	margin-top:63px;
+	}
+#h2{
+	width:100px;
+	height:90px;
+	background-color:#06C;
+    left:1520px;
+	top:0;
+	position:absolute;}
+
+#h3{
+	width:221px;
+	height:120px;
+	background-color:#06C;
+    left:1718px;
+	top:0;
+	position:absolute;}
+
+
+
+#h4{
+	width:60px;
+	height:60px;
+	background-color:#06C;
+    left:2036px;
+	top:0;
+	position:absolute;}*/
+#copyright{
+	background-color:#fff;
+	width:1260px;
+	height:50px;
+	margin:0 auto;
+	}
+/*#cpframe{
+	margin:0 auto;
+	margin-top:0;
+}*/
+
+.p1{
+    color:#000;
+	background-color:#fff;/*背景颜色*/
+	width:170px;
+	height:50px;
+	font-size:14px;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	margin:0 auto;
+	float:left;
+	margin-left:280px;
+	margin-top:0;
+	}
+#guanggao{
+	background-color:#F96;
+	width:300px;
+	height:300px;
+	bottom:100px;
+	right:100px;
+	position:fixed;
+	font-size:60px;
+	text-align:center;
+	border-radius:5px;}
+/*#p2{
+	background-color:#000;
+	width:120px;
+	height:20px;
+	text-align:center;
+	font-size:12px;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	left:1530px;
+	}*/
+

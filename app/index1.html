@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>github</title>
+	<script type="text/javascript">
+
+	
+	console.log("................1.................");
+		 function getName() { console.log(5);}
+		 function Foo() {
+		    getName = function () { console.log(1); };//没有var申明的是全局变量
+		    return this;
+		}
+		 Foo.getName = function () { console.log(2);};
+		 Foo.prototype.getName = function () { console.log(3);};//在原型里面写方法 产生的对象会调用原型里面的方法
+		 var getName = function () { console.log(4);};
+		 	Foo.getName();		//2 调用的是定义在Foo函数对象上的函数，所以执行的代码是5行
+			getName();			//4 调用时，从全局环境中寻找getName方法，由于第8行代码为函数声明，所以在所有代码执行之前会先初始化，然后第7行代码会覆盖它。所以执行的代码是7行
+			Foo().getName();	//1 Foo()调用后返回this而在Foo内部this的值为window.所以
+			getName();			//1	由于上面代码的调用，全局环境中的getName被覆盖为2行代码，所以执行2行代码
+			new Foo.getName();	//2 先执行Foo.getName(),再对Foo.getName()的返回值执行new操作。调用的是定义在Foo函数对象上的函数，所以执行的代码是5行 
+			new Foo().getName();//3 先执行new Foo(),返回Foo的实例，调用Foo的实例的getName(),Foo实例中因为没有getName方法，所以为寻找Foo.prototype中的getName方法，执行6行
+		console.log("................2.................");
+				function fun(n,o) {
+		  	         console.log(o);
+		  	       return {
+		    	 fun:function(m){
+		      		return fun(m,n);
+		    	}
+		  	};
+		}
+				var a = fun(0); //0传入函数fun 由于没有给o赋值所以数出来的是undefined 再return一个函数fun 里面又是return一个函数fun(m,n) m没有值 n也没有向上找n=0输出0
+				console.log(a);// Object { fun=function()}
+				a.fun(1);//fun(0).fun(1) n=0 m=1 
+				a.fun(2);//fun(0).fun(2) n=0 m=2  
+				a.fun(3);
+				var a=fun(1);//fun(0).fun(1) n=0 m=1 
+				a=a.fun(1);
+        console.log("................3.................");
+                var arr = new Array("terry","tom","vicky");
+                console.log(arr);// ["terry", "tom", "vicky"]
+				var a = arr.toString();//将数组转为字符串
+				var b = arr.hasOwnProperty("length");
+				console.log(a);//terry,tom,vicky
+				console.log(b);
+          console.log("................4.................");
+          	var length = 10;
+		function fn(){
+		      console.log(this.length)
+		};
+		var obj = {
+		    length: 5,		   
+		    method: function(fn) {		
+		        fn();
+		        //console.log(this.length);5
+		        arguments[0]() ;//返回这个参数的长度
+		    }
+		};
+		obj.method(fn);//10 1
+        
+		var arr= [fn,fn,fn]; //arr[fn(),fn(),fn()]
+		console.log(arr)
+		arr[2](); //fn();console.log(this.length)3
+console.log("随即选取1~100之间的10个整数,并把这些值放到一个数组中,然后使用sort对该数组进行升序排序");
+var arr=[];
+var j=0;
+for(var i=0;i<10;i++){
+	var num1=Math.random();
+	var num2=Math.ceil(num1*100);
+	console.log(num2);
+    arr[j]=num2;
+    j++;
+}
+console.log(arr);
+var result=arr.sort(function(a,b){
+if(a>b){
+	return 1;//返回正数的时候从小到大排序
+}
+if(a<b){
+	return -1;//返回负数的时候从大到小
+}
+});
+console.log(result);
+console.log("使用递归和循环实现1!+2!+3!+4!+...+10!");
+function dg(num){
+	if(num<=1){
+		return num;
+	}else{
+		return num*arguments.callee(num-1);
+	}
+}
+var dgval=dg(3);
+console.log(dgval);
+var sum=0;
+for(var i=1;i<=10;i++){
+	//dg(i);
+	sum=sum+dg(i);
+}
+console.log(sum);
+console.log("定义一个方法，传入一个string类型的参数，然后将string的每个字符间加个空格返回。例如： spacify('hello world') // => 'h e l l o  w o r l d' ");
+function spacify(str){
+	console.log(str);
+    var val=str.split("").join(" ");
+    //join()把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔。
+    console.log(val);
+}
+spacify("hello world");
+//spilt() 方法用于把一个字符串分割成字符串数组。
+//参数表示字符串或正则表达式 表示从这个指定参数开始分隔字符串 默认一逗号分割 空字符串表示默认把字符串每个单词拿出并以逗号分割
+/*console.log("");//"空字符串"
+
+	var str="How are you doing today?"
+
+console.log(str.split(" "))
+document.write(str.split("") + "<br />")
+document.write(str.split(" ",3))*/
+console.log("如果想按照以下方法来调用spacify,该方法改如何实现'hello world'.")
+           /*
+           "hello world".spaceify();//这是一个对象在调用这个方法 
+           可以把这个方法写到这个对象的原型中 那么就可以调用了
+           这相当于
+           spacify();
+		   str = new String("hello world");
+		   str.spaceify()	*/
+		   var str=String("hello world");
+		   String.prototype.spaceify=function(){
+		   	console.log(this);//是一个string类型的对象
+		   	var val=this.split("").join(" ");
+		   	console.log(val);
+		   }
+		   str.spaceify();
+console.log(".已知有字符串foo=”get-element-by-id”,写一个function将其转化成驼峰表示法”getElementById”。")
+var str="get-element-by-id";
+var turn=str.split("-");//将字符转为数组当遇见-的时候进行分割
+console.log(turn);//得到字符串数组
+//substr方法可在字符串中抽取从 start 下标开始的指定数目的字符。
+for(var i=0;i<turn.length;i++){
+	console.log(turn[i]);
+	if(i!=0){
+		turn[i]=turn[i].charAt(0).toUpperCase()+turn[i].substr(1);
+	}
+	
+}
+console.log(turn);
+console.log(turn.join(""));//将数组转为字符串将数组中所有的元素放入一个字符串空字符串“”表示不分割 没有参数则表示默认逗号分隔
+console.log("下面这个ul，如何点击每一列的时候alert其index");
+window.onload=function(){
+var li=document.getElementsByTagName("li");
+for(var i=0;i<li.length;i++){
+	console.log(li.length)
+	li[i].onclick=(function(m){//参数放在这里 
+		return function(){
+			alert(m+1);//没有定义m这个值就一次往上找
+		}
+	})(i)
+}
+var time=new Date();
+var year=time.getFullYear();
+var month=time.getMonth()+1;
+var day=time.getDate();
+console.log(year);
+console.log(month);
+console.log(day);
+month=month<10?"0"+month:month;
+day=day<10?"0"+day:day
+var str=year+"-"+month+"-"+day;
+console.log(str);
+
+console.log("................二分查找................");
+function binarySearch(num,start,end,arr){
+	//如果只有一个数
+	if(end-start==1){
+		if(arr[start]==num){
+			return start;
+		}
+		if(arr[end]==num){
+			return end;
+		}
+		return -1
+	}
+	//不是一个数的情况
+	var center=Math.floor((start+end)/2);
+	if(num!=arr[center]){
+		return num<arr[center]? binarySearch(num,start,center,arr):binarySearch(num,center,end,arr);
+	}
+
+	return center;
+}
+var arr=[1,2,3,4,5];
+console.log(binarySearch(4,0,arr.length,arr))
+
+}
+
+
+	</script>
+
+</head>
+<body>
+	<ul id=”test”>
+		<li>这是第一条</li>
+		<li>这是第二条</li>
+		<li>这是第三条</li>
+		</ul>	
+</body>
+</html>
